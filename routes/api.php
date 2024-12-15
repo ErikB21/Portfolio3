@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\AdminController;
 use App\Http\Controllers\api\CertificationController;
+use App\Http\Controllers\api\ProjectController;
 use App\Http\Controllers\api\SkillController;
 use App\Http\Controllers\api\WorkController;
 use Illuminate\Http\Request;
@@ -25,4 +26,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/skill', [SkillController::class, 'index']);
 Route::get('/work-timeline', [WorkController::class, 'index']);
 Route::get('/certification', [CertificationController::class, 'index']);
+Route::get('/project', [ProjectController::class, 'index']);
 Route::get('/admin', [AdminController::class, 'index']);
