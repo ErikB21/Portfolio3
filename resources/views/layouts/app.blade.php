@@ -55,6 +55,9 @@
                             <a class="nav-link {{ request()->route('admin.skill') ? 'active' : '' }}" href="{{ route('admin.skill') }}">{{ __('Skills') }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{ request()->route('admin.project') ? 'active' : '' }}" href="{{ route('admin.project') }}">{{ __('Projects') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('admin.work') ? 'active' : '' }}" href="{{ route('admin.work') }}">{{ __('Works') }}</a>
                         </li>
                         <li class="nav-item">
