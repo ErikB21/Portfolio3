@@ -1,0 +1,64 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nanum+Pen+Script&display=swap');
+
+    #app{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        .fixed-top {
+            position: fixed;
+            z-index: 10;
+            width: 100%;
+            top: 0;
+        }
+        main{
+            flex: 1;
+            overflow-y: auto;
+            padding-top: 70px;
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+               background-color: rgb(33, 37, 41);
+            }
+        }
+
+    }
+
+    body::-webkit-scrollbar {
+        width: 3px;
+        background-color: rgb(33, 37, 41);
+        // &::-webkit-scrollbar-thumb {
+        //     background-color: rgb(33, 37, 41);
+        // }
+    }
+
+    // @media screen and (max-width:991px){
+    //     #app{
+    //         height: 100%;
+    //         width: 100%;
+    //         overflow-y: auto;
+    //         &::-webkit-scrollbar {
+    //             width: 8px;
+    //         }
+
+    //         &::-webkit-scrollbar-thumb {
+    //            background-color: rgb(33, 37, 41)!important;
+    //            scrollbar-color: transparent !important;
+    //         }
+    //     }
+    // }
+
+
+

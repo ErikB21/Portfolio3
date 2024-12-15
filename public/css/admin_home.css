@@ -1,0 +1,21 @@
+.main-body {
+  padding: 15px;
+}
+.main-body .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.main-body .eb_image {
+  width: 200px;
+  height: 200px;
+}
+.main-body .hr_eb {
+  border-right: 1px solid rgba(222, 226, 230, 0.25);
+}

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.eb_image {
+  width: 300px;
+  height: 300px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #FFB74D; /* Arancione chiaro */
+}
+
+.back:hover {
+  color: #FF8C00; /* Arancione più scuro */
+  cursor: pointer;
+}
+
+.labels {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  padding-top: 10px;
+}
+
+.add-experience:hover {
+  background: #FFB74D; /* Arancione chiaro */
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #FFB74D; /* Stesso arancione chiaro */
+}
+
+.shadow {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

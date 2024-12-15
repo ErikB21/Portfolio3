@@ -1,0 +1,14 @@
+Copyright (c) 2024 alexruix (Alex Ruiz)
+
+Autorizzazione è concessa gratuitamente a chiunque ottenga una copia di questo software e dei file di documentazione associati,
+per trattare il software senza restrizioni, inclusi, a titolo esemplificativo, i diritti di utilizzo, copia, modificare, unire, pubblicare,
+distribuire, concedere in sublicenza e/o vendere copie del Software e consentire alle persone alle quali il Software è fornito di farlo,
+fatte salve le seguenti condizioni:
+
+L'avviso di copyright di cui sopra e il presente avviso di autorizzazione devono essere inclusi in tutte le copie o parti sostanziali del software.
+
+IL SOFTWARE È FORNITO "COME È", SENZA GARANZIA DI QUALSIASI TIPO, ESPRESSO O IMPLICITO, COMPRESO MA NON LIMITATO ALLE GARANZIE DI MERCANTABILITÀ,
+IDONEITÀ PER UN PARTICOLARE SCOPO E NON INFRACCIAMENTO.
+
+
+
