@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CertificationController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\ContactController;
@@ -41,6 +42,13 @@ Route::middleware('auth')
         Route::get('/certification/{certification}/edit', [CertificationController::class, 'edit'])->name('certification.edit');
         Route::patch('/certification/{certification}', [CertificationController::class, 'update'])->name('certification.update');
         Route::delete('/certification/{certification}', [CertificationController::class, 'destroy'])->name('certification.destroy');
+
+        Route::get('/project', [ProjectController::class, 'index'])->name('project');
+        Route::post('/project/store', [ProjectController::class, 'store'])->name('project.store');
+        Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');
+        Route::get('/project/{project}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+        Route::patch('/project/{project}', [ProjectController::class, 'update'])->name('project.update');
+        Route::delete('/project/{project}', [ProjectController::class, 'destroy'])->name('project.destroy');
 
 
         Route::get('/messages', [MessageController::class, 'index'])->name('messages');
