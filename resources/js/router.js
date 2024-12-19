@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import ContactMe from './pages/ContactMe.vue';
 import AboutMe from './pages/AboutMe.vue';
 import Projects from './pages/Projects.vue';
+import WatchProject from './pages/WatchProject.vue';
 import Skills from './pages/Skills.vue';
 import NotFound from './pages/NotFound.vue';
 import Timeline from './pages/Timeline.vue';
@@ -29,6 +30,11 @@ const router = new VueRouter({
 				path: '/project',
 				name:'project',
 				component: Projects
+			},
+            {
+				path: '/watch-project/:id',
+				name:'watchProject',
+				component: WatchProject
 			},
             {
 				path: '/skill',
