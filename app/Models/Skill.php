@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Skill extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'category', 'type', 'skill_image', 'url', 'user_id'];
+    protected $fillable = ['name', 'category', 'type', 'color', 'skill_image', 'url', 'user_id'];
 
     // Relazione con il modello User
     public function user():BelongsTo
