@@ -20,6 +20,7 @@ class CreateSkillsTable extends Migration
             $table->string('type'); // Frontend, Backend, Full-stack
             $table->string('category'); // Es: Framework CSS, Linguaggio di programmazione, Server Web, etc.
             $table->string('skill_image')->nullable();
+            $table->string('color')->nullable();
             $table->string('url')->nullable();
             $table->timestamps();
         });

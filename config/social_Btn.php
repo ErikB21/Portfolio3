@@ -20,7 +20,7 @@
             'title' => 'Github'
         ],
         [
-            'name' => '',
+            'name' => 'erik.borgogno.dev@gmail.com',
             'icon' => 'fab fa-google',
             'btn' => 'btn-danger',
             'title' => 'Gmail'
