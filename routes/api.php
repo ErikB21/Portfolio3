@@ -27,4 +27,5 @@ Route::get('/skill', [SkillController::class, 'index']);
 Route::get('/work-timeline', [WorkController::class, 'index']);
 Route::get('/certification', [CertificationController::class, 'index']);
 Route::get('/project', [ProjectController::class, 'index']);
+Route::get('/project/{id}', [ProjectController::class, 'show']);
 Route::get('/admin', [AdminController::class, 'index']);
