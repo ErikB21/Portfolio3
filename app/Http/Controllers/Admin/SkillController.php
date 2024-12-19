@@ -46,6 +46,7 @@ class SkillController extends Controller
             'type' => 'required|in:Front-end,Back-end,Full-stack',
             'skill_image' => 'image|max:8000|nullable',
             'url' => 'url|nullable',
+            'color' => 'string|nullable',
             'user_id' => 'numeric|required',
         ]);
 
@@ -97,6 +98,7 @@ class SkillController extends Controller
             'type' => 'required|in:Front-end,Back-end,Full-stack',
             'skill_image' => 'image|max:8000|nullable',
             'url' => 'url|nullable',
+            'color' => 'string|nullable',
             'user_id' => 'numeric|required|exists:users,id',
         ]);
 
