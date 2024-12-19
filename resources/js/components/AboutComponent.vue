@@ -2,7 +2,7 @@
     <div class="card rounded-5 px-4 pt-2 pb-3 d-flex flex-row flex-lg-column justify-content-evenly justify-content-lg-center align-items-center eb_width text-light">
         <div class="col-5 col-lg-12 d-flex flex-column justify-content-center align-items-center">
             <div class="eb_image pt-2 d-flex justify-content-center align-items-center overflow-hidden rounded-circle">
-                <img loading="lazy" class="card-img-top object-fit-cover h-auto rounded-circle w-100" :src="'/storage/profile_pic/' + user.profile_pic" alt="Profile Picture">
+                <img loading="lazy" class="card-img-top object-fit-cover h-auto rounded-circle w-100" :src="user.profile_pic ? '/storage/profile_pic/' + user.profile_pic : 'https://img.freepik.com/premium-vector/gamer-streamer-mascot-logo-vector-illustration_382438-609.jpg'" alt="Profile Picture">
             </div>
         </div>
         <div class="col-5 col-lg-12 d-flex flex-column justify-content-center align-items-center">
