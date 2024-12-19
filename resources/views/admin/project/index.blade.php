@@ -19,7 +19,7 @@
                     <thead class="table-dark text-light">
                         <tr>
                             <th scope="col">{{ __('Progetto') }}</th>
-                            <th scope="col">{{ __('Descrizione') }}</th>
+                            <th scope="col">{{ __('Skills') }}</th>
                             <th scope="col">{{ __('Url') }}</th>
                             <th scope="col">{{ __('Url Video') }}</th>
                             <th scope="col">{{ __('Azioni') }}</th>
@@ -30,22 +30,15 @@
                         <tr class="align-middle">
                             <td>
                                 <div class="d-flex align-items-center">
-                                    {{-- @if($skill['skill_image'])
-                                    <div class="me-3">
-                                        <img src="{{ asset('storage/skill/' . $skill->skill_image) }}" class="img-fluid rounded-circle" alt="{{ $skill->name }}" style="width: 50px; height: 50px;">
-                                    </div>
-                                    @else
-                                    <div class="me-3">
-                                        <img src="/images/code/code.gif" class="img-fluid rounded-circle" alt="{{ $skill->name }}" style="width: 50px; height: 50px;">
-                                    </div>
-                                    @endif --}}
                                     <div>
                                         <a href="" class="text-decoration-none text-secondary fw-bold">{{ $project->name }}</a>
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-center">
-                                <span class="fw-semibold text-muted">{{ $project->text }}</span>
+                            <td>
+                                @foreach($project->skills as $skill)
+                                    <span class="badge" style="background-color: {{ $skill->color }}">{{ $skill->name }}</span>
+                                @endforeach
                             </td>
                             <td class="text-center">
                                 <span class="fw-semibold text-muted">{{ $project->url }}</span>
