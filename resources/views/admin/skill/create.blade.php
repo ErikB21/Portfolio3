@@ -24,6 +24,9 @@
                     </select>
                 </div>
                 <div class="form-group mt-3">
+                    <input type="text" required value="{{ old('color', $skill->color) }}" placeholder="Colore Skill" class="form-control" name="color" id="color">
+                </div>
+                <div class="form-group mt-3">
                     <input type="text" required value="{{ old('category', $skill->category) }}" placeholder="Categoria Skill" class="form-control" name="category" id="category">
                 </div>
                 <div class="form-group mt-3">

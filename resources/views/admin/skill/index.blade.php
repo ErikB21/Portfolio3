@@ -23,6 +23,7 @@
                             <th scope="col">{{ __('Linguaggio') }}</th>
                             <th scope="col">{{ __('Categoria') }}</th>
                             <th scope="col">{{ __('Tipologia') }}</th>
+                            <th scope="col">{{ __('Colore') }}</th>
                             <th scope="col">{{ __('Azioni') }}</th>
                         </tr>
                     </thead>
@@ -50,6 +51,9 @@
                             </td>
                             <td class="text-center">
                                 <span class="fw-semibold text-muted">{{ $skill->type }}</span>
+                            </td>
+                            <td class="text-center">
+                                <span class="fw-semibold badge text-light" style="background-color: {{ $skill->color }}" >{{ $skill->color }}</span>
                             </td>
                             <td class="text-center">
                                 <div class="d-flex justify-content-center">
