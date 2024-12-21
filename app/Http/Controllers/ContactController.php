@@ -31,15 +31,17 @@ class ContactController extends Controller
         $email = $this->sanitizeInput($request->input('email'));
         $subject = $this->sanitizeInput($request->input('subject'));
         $body = $this->sanitizeInput($request->input('message'));
-        $userId = Auth::user()->id;
+
+         // Imposta l'ID dell'amministratore (ad esempio, l'ID 1)
+        $adminUserId = 1; // Cambia questo con l'ID del tuo utente amministratore
 
         // Salva il messaggio nel database
         Message::create([
+            'user_id' => $adminUserId, // Assegna l'ID dell'amministratore
             'name' => $name,
             'email' => $email,
             'subject' => $subject,
             'message' => $body,
-            'user_id' => $userId
         ]);
 
         // Inizializza PHPMailer

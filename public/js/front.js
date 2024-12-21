@@ -7300,6 +7300,7 @@ var render = function () {
                 staticClass: "form-control py-2",
                 class: { "border-danger": _vm.errors.name },
                 attrs: {
+                  required: "",
                   id: "name",
                   name: "name",
                   type: "text",
@@ -7340,6 +7341,7 @@ var render = function () {
                 staticClass: "form-control py-2",
                 class: { "border-danger": _vm.errors.email },
                 attrs: {
+                  required: "",
                   id: "email",
                   name: "email",
                   type: "email",
@@ -7383,6 +7385,7 @@ var render = function () {
                 staticClass: "form-control py-2",
                 class: { "border-danger": _vm.errors.subject },
                 attrs: {
+                  required: "",
                   id: "subject",
                   name: "subject",
                   type: "text",
@@ -7426,6 +7429,7 @@ var render = function () {
                 staticClass: "form-control py-2",
                 class: { "border-danger": _vm.errors.message },
                 attrs: {
+                  required: "",
                   id: "message",
                   name: "message",
                   placeholder: "Message",
