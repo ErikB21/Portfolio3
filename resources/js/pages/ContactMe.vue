@@ -13,22 +13,22 @@
                     <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
                     <div class="form-group mb-3">
                         <label class="control-label pb-3" for="name">Name</label>
-                        <input v-model="form.name" id="name" name="name" class="form-control py-2" type="text" placeholder="Full Name" :class="{ 'border-danger': errors.name }"/>
+                        <input v-model="form.name" required id="name" name="name" class="form-control py-2" type="text" placeholder="Full Name" :class="{ 'border-danger': errors.name }"/>
                         <small v-if="errors.name">{{ errors.name }}</small>
                     </div>
                     <div class="form-group mb-3">
                         <label class="control-label pb-3" for="email">Email</label>
-                        <input v-model="form.email" id="email" name="email" class="form-control py-2" type="email" placeholder="Email" :class="{ 'border-danger': errors.email }"/>
+                        <input v-model="form.email" required id="email" name="email" class="form-control py-2" type="email" placeholder="Email" :class="{ 'border-danger': errors.email }"/>
                         <small v-if="errors.email">{{ errors.email }}</small>
                     </div>
                     <div class="form-group mb-3">
                         <label class="control-label pb-3" for="subject">Subject</label>
-                        <input v-model="form.subject" id="subject" name="subject" class="form-control py-2" type="text" placeholder="Subject" :class="{ 'border-danger': errors.subject }"/>
+                        <input v-model="form.subject" required id="subject" name="subject" class="form-control py-2" type="text" placeholder="Subject" :class="{ 'border-danger': errors.subject }"/>
                         <small v-if="errors.subject">{{ errors.subject }}</small>
                     </div>
                     <div class="form-group mb-3">
                         <label class="control-label pb-3" for="message">Message</label>
-                        <textarea v-model="form.message" id="message" name="message" class="form-control py-2" placeholder="Message" :class="{ 'border-danger': errors.message }"></textarea>
+                        <textarea v-model="form.message" required id="message" name="message" class="form-control py-2" placeholder="Message" :class="{ 'border-danger': errors.message }"></textarea>
                         <small v-if="errors.message">{{ errors.message }}</small>
                     </div>
                     <div class="d-flex justify-content-evenly px-1 py-3">
