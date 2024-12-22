@@ -5,11 +5,16 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\WorkController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
+use App\Models\Visit;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+Route::get('login-TpXeF6tx6aZ8x$^rr3w7', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login-TpXeF6tx6aZ8x$^rr3w7', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')
     ->namespace('Admin')
@@ -59,7 +64,24 @@ Route::middleware('auth')
 Route::post('/send-email', [ContactController::class, 'sendEmail']);
 
 Route::get('/', function () {
-    return view('guest.home'); // Assicurati che questa vista esista
+    $ipAddress = request()->ip(); // Ottieni l'IP dell'utente
+
+    // Registra la visita se l'IP non ha già visitato oggi
+    Visit::registerVisit($ipAddress);
+
+    // Recupera i conteggi delle visite dalla cache, se esistono
+    $dailyVisits = Cache::remember('daily_visits', 600, function () {
+        return Visit::getDailyVisits();
+    });
+
+    $weeklyVisits = Cache::remember('weekly_visits', 600, function () {
+        return Visit::getWeeklyVisits();
+    });
+
+    $monthlyVisits = Cache::remember('monthly_visits', 600, function () {
+        return Visit::getMonthlyVisits();
+    });
+    return view('guest.home', compact('dailyVisits', 'weeklyVisits', 'monthlyVisits')); // Assicurati che questa vista esista
 })->name('guest.home');
 
 Route::get('{any?}', function(){
