@@ -54,7 +54,7 @@
     <div class="row justify-content-center align-items-center g-md-2">
         <div class="text-center col-md-4 position-relative">
             <img class="w-100 h-100" src="{{ asset('images/Programming-amico.png') }}" alt="">
-            <small class="small text-muted eb_fs position-absolute">Web illustrations by <a class="text-decoration-none" href="https://storyset.com/web">Storyset</a></small>
+            <small class="small text-muted eb_fs position-absolute">{{ __('Web illustrations by') }} <a class="text-decoration-none" href="https://storyset.com/web">{{ __('Storyset') }}</a></small>
         </div>
         <div class="col-md-7">
             <div class="card border_col">
