@@ -13,21 +13,27 @@
         </div>
         <div class="card-body">
             <div class="mb-3">
-                <p><strong>Nome:</strong> {{ $message->name }}</p>
+                <p><strong>{{ __('Nome:') }}</strong> {{ $message->name }}</p>
             </div>
             <div class="mb-3">
-                <p><strong>Email:</strong> {{ $message->email }}</p>
+                <p><strong>{{ __('Cognome:') }}</strong> {{ $message->surname }}</p>
             </div>
             <div class="mb-3">
-                <p><strong>Messaggio:</strong></p>
+                <p><strong>{{ __('Email:') }}</strong> {{ $message->email }}</p>
+            </div>
+            <div class="mb-3">
+                <p><strong>{{ __('Messaggio:') }}</strong></p>
                 <p>{{ $message->message }}</p>
             </div>
             <div class="mb-3">
-                <p><strong>Data:</strong> {{ $message->created_at->format('d-m-Y H:i') }}</p>
+                <p><strong>{{ __('Data:') }}</strong> {{ $message->created_at->format('d-m-Y H:i') }}</p>
+            </div>
+            <div class="mb-3">
+                <a href="mailto:{{ $message->email }}" class="btn btn-dark"><i class="fa-regular fa-envelope-open fa-xl"></i> {{ __('Rispondi') }}</a>
             </div>
         </div>
         <div class="card-footer bg-dark text-secondary">
-            <p class="mb-0">Visualizzato il {{ $message->updated_at->format('d-m-Y H:i') }}</p>
+            <p class="mb-0">{{ __('Visualizzato il ') }}{{ $message->updated_at->format('d-m-Y H:i') }}</p>
         </div>
     </div>
 </div>

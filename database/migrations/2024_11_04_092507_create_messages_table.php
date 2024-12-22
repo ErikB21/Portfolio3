@@ -22,6 +22,7 @@ class CreateMessagesTable extends Migration
                 ->on('users')
                 ->onDelete('set null');
             $table->string('name');
+            $table->string('surname');
             $table->string('email');
             $table->string('subject');
             $table->text('message');

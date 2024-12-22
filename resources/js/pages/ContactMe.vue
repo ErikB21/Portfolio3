@@ -11,22 +11,27 @@
                 <form ref="contactForm" @submit.prevent="sendEmail">
                     <div v-if="successMessage" class="alert alert-success">{{ successMessage }}</div>
                     <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-2">
                         <label class="control-label pb-3" for="name">Name</label>
                         <input v-model="form.name" required id="name" name="name" class="form-control py-2" type="text" placeholder="Full Name" :class="{ 'border-danger': errors.name }"/>
                         <small v-if="errors.name">{{ errors.name }}</small>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-2">
+                        <label class="control-label pb-3" for="surname">Surname</label>
+                        <input v-model="form.surname" required id="surname" name="surname" class="form-control py-2" type="text" placeholder="Full Surname" :class="{ 'border-danger': errors.surname }"/>
+                        <small v-if="errors.surname">{{ errors.surname }}</small>
+                    </div>
+                    <div class="form-group mb-2">
                         <label class="control-label pb-3" for="email">Email</label>
                         <input v-model="form.email" required id="email" name="email" class="form-control py-2" type="email" placeholder="Email" :class="{ 'border-danger': errors.email }"/>
                         <small v-if="errors.email">{{ errors.email }}</small>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-2">
                         <label class="control-label pb-3" for="subject">Subject</label>
                         <input v-model="form.subject" required id="subject" name="subject" class="form-control py-2" type="text" placeholder="Subject" :class="{ 'border-danger': errors.subject }"/>
                         <small v-if="errors.subject">{{ errors.subject }}</small>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-2">
                         <label class="control-label pb-3" for="message">Message</label>
                         <textarea v-model="form.message" required id="message" name="message" class="form-control py-2" placeholder="Message" :class="{ 'border-danger': errors.message }"></textarea>
                         <small v-if="errors.message">{{ errors.message }}</small>
@@ -49,6 +54,7 @@
       return {
         form: {
           name: '',
+          surname: '',
           email: '',
           subject: '',
           message: ''
@@ -65,6 +71,7 @@
         try {
             const response = await axios.post('/send-email', {
                 name: this.form.name,
+                surname: this.form.surname,
                 email: this.form.email,
                 subject: this.form.subject,
                 message: this.form.message
@@ -74,6 +81,7 @@
                 this.successMessage = response.data.response;
                 this.errorMessage = '';
                 this.form.name = '';
+                this.form.surname = '';
                 this.form.email = '';
                 this.form.subject = '';
                 this.form.message = '';

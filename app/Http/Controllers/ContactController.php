@@ -17,6 +17,7 @@ class ContactController extends Controller
         // Validazione dei campi
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|min:3|max:100',
+            'surname' => 'required|string|min:3|max:100',
             'email' => 'required|email|max:255',
             'subject' => 'required|string|max:100',
             'message' => 'required|string|max:5000'
@@ -28,6 +29,7 @@ class ContactController extends Controller
 
         // Sanitizzazione dei dati
         $name = $this->sanitizeName($request->input('name'));
+        $surname = $this->sanitizeName($request->input('surname'));
         $email = $this->sanitizeInput($request->input('email'));
         $subject = $this->sanitizeInput($request->input('subject'));
         $body = $this->sanitizeInput($request->input('message'));
@@ -39,6 +41,7 @@ class ContactController extends Controller
         Message::create([
             'user_id' => $adminUserId, // Assegna l'ID dell'amministratore
             'name' => $name,
+            'surname' => $surname,
             'email' => $email,
             'subject' => $subject,
             'message' => $body,

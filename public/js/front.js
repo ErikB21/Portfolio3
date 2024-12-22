@@ -2755,6 +2755,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2763,6 +2768,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     return {
       form: {
         name: '',
+        surname: '',
         email: '',
         subject: '',
         message: ''
@@ -2790,6 +2796,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _context.next = 5;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/send-email', {
                 name: _this.form.name,
+                surname: _this.form.surname,
                 email: _this.form.email,
                 subject: _this.form.subject,
                 message: _this.form.message
@@ -2800,6 +2807,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 _this.successMessage = response.data.response;
                 _this.errorMessage = '';
                 _this.form.name = '';
+                _this.form.surname = '';
                 _this.form.email = '';
                 _this.form.subject = '';
                 _this.form.message = '';
@@ -3836,7 +3844,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".eb_bg h1[data-v-55bf53fa] {\n  font-size: 4.5rem;\n  color: #7f5af0;\n}\n.eb_bg .btn[data-v-55bf53fa] {\n  background-color: #3b576b;\n  color: whitesmoke;\n}\n.eb_bg .btn[data-v-55bf53fa]:hover {\n  background-color: black;\n}\n\n/* Wrapper che contiene tutti i libri (CardProject) */\n.books-container[data-v-55bf53fa] {\n  display: flex;\n  flex-direction: column; /* Layout verticale per i libri */\n  width: 100%;\n}\n\n/* Contenitore dei libri */\n.books[data-v-55bf53fa] {\n  display: flex;\n  flex-direction: row; /* Disporre i libri in verticale */\n  gap: 10px;\n  width: 100%;\n  height: 200px;\n}\n\n/* Mensola */\n.shelf[data-v-55bf53fa] {\n  width: 100%;\n  height: 30px;\n  background-image: url(\"/images/wood.png\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  border-radius: 0 0 8px 8px;\n  position: relative;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".eb_bg h1[data-v-55bf53fa] {\n  font-size: 4.5rem;\n  color: #7f5af0;\n}\n.eb_bg .btn[data-v-55bf53fa] {\n  background-color: #3b576b;\n  color: whitesmoke;\n}\n.eb_bg .btn[data-v-55bf53fa]:hover {\n  background-color: black;\n}\n\n/* Wrapper che contiene tutti i libri (CardProject) */\n.books-container[data-v-55bf53fa] {\n  display: flex;\n  flex-direction: column; /* Layout verticale per i libri */\n  max-width: 100%;\n}\n\n/* Contenitore dei libri */\n.books[data-v-55bf53fa] {\n  display: flex;\n  flex-direction: row; /* Disporre i libri in verticale */\n  gap: 10px;\n  width: 100%;\n  height: 200px;\n}\n\n/* Mensola */\n.shelf[data-v-55bf53fa] {\n  width: 100%;\n  height: 30px;\n  background-image: url(\"/images/wood.png\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  border-radius: 0 0 8px 8px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7281,7 +7289,7 @@ var render = function () {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group mb-3" }, [
+            _c("div", { staticClass: "form-group mb-2" }, [
               _c(
                 "label",
                 { staticClass: "control-label pb-3", attrs: { for: "name" } },
@@ -7322,7 +7330,51 @@ var render = function () {
                 : _vm._e(),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group mb-3" }, [
+            _c("div", { staticClass: "form-group mb-2" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "control-label pb-3",
+                  attrs: { for: "surname" },
+                },
+                [_vm._v("Surname")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.surname,
+                    expression: "form.surname",
+                  },
+                ],
+                staticClass: "form-control py-2",
+                class: { "border-danger": _vm.errors.surname },
+                attrs: {
+                  required: "",
+                  id: "surname",
+                  name: "surname",
+                  type: "text",
+                  placeholder: "Full Surname",
+                },
+                domProps: { value: _vm.form.surname },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "surname", $event.target.value)
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _vm.errors.surname
+                ? _c("small", [_vm._v(_vm._s(_vm.errors.surname))])
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group mb-2" }, [
               _c(
                 "label",
                 { staticClass: "control-label pb-3", attrs: { for: "email" } },
@@ -7363,7 +7415,7 @@ var render = function () {
                 : _vm._e(),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group mb-3" }, [
+            _c("div", { staticClass: "form-group mb-2" }, [
               _c(
                 "label",
                 {
@@ -7407,7 +7459,7 @@ var render = function () {
                 : _vm._e(),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group mb-3" }, [
+            _c("div", { staticClass: "form-group mb-2" }, [
               _c(
                 "label",
                 {

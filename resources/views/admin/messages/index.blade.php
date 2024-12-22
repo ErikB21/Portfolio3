@@ -29,19 +29,20 @@
                                 <h4 class="card-title">{{ $message->subject }}</h4>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-subtitle pb-2 text-muted">{{ $message->name }}</h5>
+                                <h5 class="card-subtitle pb-2 text-muted">{{ $message->name }} {{ $message->surname }}</h5>
                                 <h6 class="card-subtitle pb-4 text-muted">({{ $message->email }})</h6>
                                 <p class="card-text fs-5">
                                     {{ Str::length($message->message) <= 35 ? $message->message : Str::limit($message->message, 35, '...') }}
                                 </p>
                                 <p class="card-text pt-3"><small class="text-muted">{{ __('Ricevuto') }}: {{ $message->created_at->format('d/m/Y H:i') }}</small></p>
                             </div>
-                            <div class="card-footer d-flex align-items-center justify-content-center text-light bg-dark py-3">
-                                <a href="{{ route('admin.messages.show', $message->id) }}" class="btn btn-primary mx-1">{{ __('Visualizza') }}</a>
+                            <div class="card-footer d-flex align-items-center justify-content-evenly text-light bg-dark py-3">
+                                <a href="{{ route('admin.messages.show', $message->id) }}" title="Visualizza" class="btn btn-primary mx-1"><i class="fa-regular fa-eye fa-xl"></i></a>
+                                <a href="mailto:{{ $message->email }}" title="Rispondi" class="btn btn-light"><i class="fa-regular fa-envelope fa-xl"></i></a>
                                 <form action="{{ route('admin.message.destroy', $message->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Sei sicuro di voler eliminare questo messaggio?');">{{ __('Elimina') }}</button>
+                                    <button type="submit" title="Elimina" class="btn btn-danger mx-1" onclick="return confirm('Sei sicuro di voler eliminare questo messaggio?');"><i class="fa-regular fa-trash-can fa-xl"></i></button>
                                 </form>
                             </div>
                         </div>
