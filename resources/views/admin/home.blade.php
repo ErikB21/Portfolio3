@@ -107,23 +107,38 @@
                 <div class="card bg-dark text-light mb-3">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-6 hr_eb text-center">
+                            <h2>Statistiche Visite</h2>
+                            <div class="col-12 d-flex justify-content-evenly align-items-center py-4">
+                                <p class="d-flex flex-column">
+                                    <span class="fs-2">{{ $dailyVisits }}</span>
+                                    <span>Day</span>
+                                </p>
+                                <p class="d-flex flex-column">
+                                    <span class="fs-2">{{ $weeklyVisits }}</span>
+                                    <span>Week</span>
+                                </p>
+                                <p class="d-flex flex-column">
+                                    <span class="fs-2">{{ $monthlyVisits }}</span>
+                                    <span>Month</span>
+                                </p>
+                            </div>
+                            {{-- <div class="col-6 hr_eb text-center">
                                 <h6 class="pb-1">
                                     {{ __('Hai ricevuto') }}
                                     {{ Auth::user()->unreadMessages() ? Auth::user()->unreadMessages()->count() : 0 }}
                                     {{ Auth::user()->unreadMessages() && Auth::user()->unreadMessages()->count() == 1 ? 'nuovo messaggio' : 'nuovi messaggi' }}
                                 </h6>
                                 <a href="{{route('admin.messages')}}" class="btn btn-info">{{ __('Vedi') }}</a>
-                            </div>
-                            <div class="col-6 text-center">
+                            </div> --}}
+                            {{-- <div class="col-6 text-center">
                                 <h6 class="pb-1">
                                     {{ __('Aggiungi nuova skill') }}
                                 </h6>
                                 <a href="{{ route('admin.skill.create') }}" class="btn btn-info">{{ __('Nuovo') }}</a>
-                            </div>
+                            </div> --}}
                         </div>
-                        <hr>
-                        <div class="row">
+                        {{-- <hr> --}}
+                        {{-- <div class="row">
                             <div class="col-6 hr_eb d-flex flex-column justify-content-center align-items-center">
                                 <h6 class="pb-1">
                                     {{ __('Aggiungi nuovo studio/lavoro') }}
@@ -136,7 +151,7 @@
                                 </h6>
                                 <a href="{{ route('admin.certification.create') }}" class="btn btn-info">{{ __('Nuovo') }}</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
