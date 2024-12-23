@@ -1,16 +1,15 @@
 <template>
     <div class="container-fluid eb_bg">
         <h1 class="text-center fw-bold my-5">Projects</h1>
-        <div class="row justify-content-center">
-            <!-- Aggiungi i CardProject all'interno di una colonna -->
-            <div class="books-container d-flex flex-column justify-content-center">
-                <div class="books d-flex">
-                    <CardProject v-for="(project, index) in projects" :key="index" :project="project"/>
-                </div>
-
-                <!-- Mensola sotto i progetti -->
-                <div class="shelf"></div>
+        <!-- Aggiungi i CardProject all'interno di una colonna -->
+        <div class="books-container d-flex flex-column justify-content-center">
+            <div class="books d-flex">
+                <CardProject v-for="(project, index) in projects" :key="index" :project="project"/>
+                <CardProjectDefault v-if="projects.length < 7"/>
             </div>
+
+            <!-- Mensola sotto i progetti -->
+            <div class="shelf"></div>
         </div>
     </div>
 </template>
@@ -18,10 +17,11 @@
 <script>
 import axios from 'axios';
 import CardProject from '../components/CardProject.vue';
+import CardProjectDefault from '../components/CardProjectDefault.vue';
 
 export default {
     name: 'Projects',
-    components: { CardProject },
+    components: { CardProject, CardProjectDefault },
     data() {
         return {
             projects: [],
