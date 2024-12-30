@@ -1,10 +1,10 @@
 <template>
-    <div class="about-me-container w-100 h-100 px-0 d-flex container-fluid flex-column">
+    <div class="about-me-container w-100 h-100 px-0 d-flex container-fluid">
         <!-- <canvas class="planet-canvas w-100 h-100"></canvas> -->
-        <div class="astro" v-if="isAstronautVisible">
+        <!-- <div class="astro" v-if="isAstronautVisible">
             <AstronautComponent/>
-        </div>
-        <h1 class="text-dark" v-if="user">{{ user.name }} {{ user.surname }}</h1>
+        </div> -->
+        <h1 class="text-light px-2 fw-bold text-pop-up-top" v-if="user">{{ user.name }} {{ user.surname }}</h1>
     </div>
 </template>
 
@@ -44,49 +44,61 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about-me-container {
-    height: 100%;
-    position: relative;
-    overflow-y: auto;
+    $font_family: 'Press Start 2P', cursive;
 
-    .planet-canvas {
-        width: 100%;
+    .about-me-container {
         height: 100%;
-    }
+        overflow-y: auto;
+        background-image:
+            url('/images/me.png'),
+            linear-gradient(to bottom right,  rgba(127, 90, 240, 0.8) 50%, rgba(255, 255, 255, 1) 50%);
+        background-size: 300px, cover; /* Dimensione immagine e gradiente */
+        background-repeat: no-repeat;
+        background-position: right bottom, center center; /* Posizione immagine e gradiente */
 
-    .astro {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation: big 15s linear forwards, floating 4s ease-in-out 15s infinite; /* La animazione floating inizia dopo big */
-    }
-
-    @keyframes big {
-        from {
-            transform: translate(-50%, -50%) scale(0.001) translateZ(-500px); /* Comincia lontano e piccolo */
+        h1 {
+            font-family: $font_family;
+            font-size: 5rem !important;
+            color: #ffffff; /* Colore del testo */
+            padding-top: 5rem;
         }
 
-        to {
-            transform: translate(-50%, -50%) scale(1) translateZ(0); /* Arriva vicino, con dimensione normale */
+        .text-pop-up-top {
+            -webkit-animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                    animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
-    }
 
-    @keyframes floating {
-        0% {
-            transform: translate(-50%, -50%) scale(1) translateY(0); /* Inizia alla posizione originale */
+        @-webkit-keyframes text-pop-up-top {
+            0% {
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                -webkit-transform-origin: 50% 50%;
+                        transform-origin: 50% 50%;
+                text-shadow: none;
+            }
+            100% {
+                -webkit-transform: translateY(-50px);
+                        transform: translateY(-50px);
+                -webkit-transform-origin: 50% 50%;
+                        transform-origin: 50% 50%;
+                text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+            }
         }
-        50% {
-            transform: translate(-50%, -50%) scale(1) translateY(-20px); /* Muove verso l'alto */
+        @keyframes text-pop-up-top {
+            0% {
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                -webkit-transform-origin: 50% 50%;
+                        transform-origin: 50% 50%;
+                text-shadow: none;
+            }
+            100% {
+                -webkit-transform: translateY(-50px);
+                        transform: translateY(-50px);
+                -webkit-transform-origin: 50% 50%;
+                        transform-origin: 50% 50%;
+                text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+            }
         }
-        100% {
-            transform: translate(-50%, -50%) scale(1) translateY(0); /* Torna alla posizione originale */
-        }
-    }
-
-    h1 {
-        color: #ffffff;
-        font-size: 48px;
-    }
 }
 </style>
