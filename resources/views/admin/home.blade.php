@@ -122,36 +122,7 @@
                                     <span>Month</span>
                                 </p>
                             </div>
-                            {{-- <div class="col-6 hr_eb text-center">
-                                <h6 class="pb-1">
-                                    {{ __('Hai ricevuto') }}
-                                    {{ Auth::user()->unreadMessages() ? Auth::user()->unreadMessages()->count() : 0 }}
-                                    {{ Auth::user()->unreadMessages() && Auth::user()->unreadMessages()->count() == 1 ? 'nuovo messaggio' : 'nuovi messaggi' }}
-                                </h6>
-                                <a href="{{route('admin.messages')}}" class="btn btn-info">{{ __('Vedi') }}</a>
-                            </div> --}}
-                            {{-- <div class="col-6 text-center">
-                                <h6 class="pb-1">
-                                    {{ __('Aggiungi nuova skill') }}
-                                </h6>
-                                <a href="{{ route('admin.skill.create') }}" class="btn btn-info">{{ __('Nuovo') }}</a>
-                            </div> --}}
                         </div>
-                        {{-- <hr> --}}
-                        {{-- <div class="row">
-                            <div class="col-6 hr_eb d-flex flex-column justify-content-center align-items-center">
-                                <h6 class="pb-1">
-                                    {{ __('Aggiungi nuovo studio/lavoro') }}
-                                </h6>
-                                <a href="{{ route('admin.work.create') }}" class="btn btn-info">{{ __('Nuovo') }}</a>
-                            </div>
-                            <div class="col-6 d-flex flex-column justify-content-center align-items-center">
-                                <h6 class="pb-1">
-                                    {{ __('Aggiungi nuova certificazione') }}
-                                </h6>
-                                <a href="{{ route('admin.certification.create') }}" class="btn btn-info">{{ __('Nuovo') }}</a>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>

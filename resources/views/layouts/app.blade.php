@@ -73,16 +73,22 @@
                                 @endif
                             </a>
                         </li>
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link {{ request()->routeIs('admin.profile') ? 'active' : '' }}" href="{{ route('admin.profile') }}">{{ __('Profilo') }}</a>
+                        </li>
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link {{ request()->routeIs('logout') ? 'active' : '' }}" href="{{ route('logout') }}">{{ __('Logout') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Settings dropdown -->
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-lg-block d-none">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">{{ __('Profilo') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.profile') }}">{{ __('Profilo') }}</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -98,21 +104,6 @@
                 </div>
             </div>
         </nav>
-
-        <!-- Responsive menu for mobile -->
-        <div class="d-lg-none pt-5">
-            <ul class="list-group pt-2">
-                <li class="list-group-item">
-                    <a href="#" class="text-decoration-none">{{ __('Dashboard') }}</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" class="text-decoration-none">{{ __('Profilo') }}</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="{{ route('logout') }}" class="text-decoration-none" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Log Out') }}</a>
-                </li>
-            </ul>
-        </div>
         @endauth
 
         <main class="py-5">
