@@ -105,8 +105,8 @@ h1{
 
     .date_timeline{
         border: $border;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 
     .line_horizontal{
