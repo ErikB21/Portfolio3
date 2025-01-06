@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid d-flex justify-content-md-center align-items-md-center justify-content-lg-evenly bg_custom px-0 bg-dark">
+    <div class="container-fluid d-flex justify-content-md-center align-items-md-center justify-content-lg-evenly bg_custom px-0">
         <div class="d-flex flex-column flex-md-wrap flex-md-row align-items-center justify-content-center justify-content-md-between justify-content-lg-evenly align-items-lg-center flex-lg-nowrap w-100">
             <AboutComponent class="d-none d-md-flex col-md-12 col-lg-3 order-md-1 mt-md-4 mt-lg-0" />
             <div class="col-12 d-md-none order-1 d-flex justify-content-between align-items-center px-2 py-2">
@@ -47,6 +47,7 @@ export default {
     width: 100vw;
     height: 100vh;  /* Impostato esplicitamente su 100vh */
     overflow: hidden;
+    background-color: #242629;
 }
 
 @media screen and (max-width: 991px) {
