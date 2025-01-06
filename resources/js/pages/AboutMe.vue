@@ -1,104 +1,154 @@
 <template>
-    <div class="about-me-container w-100 h-100 px-0 d-flex container-fluid">
-        <!-- <canvas class="planet-canvas w-100 h-100"></canvas> -->
-        <!-- <div class="astro" v-if="isAstronautVisible">
-            <AstronautComponent/>
-        </div> -->
-        <h1 class="text-light px-2 fw-bold text-pop-up-top" v-if="user">{{ user.name }} {{ user.surname }}</h1>
+    <div class="about-me-container w-100 h-100 d-flex flex-column position-relative">
+        <div class="hello">
+            <p class="hello_text">Hello!</p>
+        </div>
+        <div class="eb">
+            <p class="user_text">
+                I Am
+                <ul class="d-block content__container__list">
+                    <li class="content__container__list__item" v-for="(item, index) in animatedList" :key="index" v-show="index === currentIndex">
+                        {{ item }}
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <div class="left-section"></div>
+        <div class="right-section"></div>
     </div>
 </template>
 
+
 <script>
 import axios from 'axios';
-import AboutMeTextComponent from '../components/AboutMeTextComponent.vue';
-import AstronautComponent from '../components/AstronautComponent.vue';
 
 export default {
     name: "AboutMe",
-    components: { AboutMeTextComponent, AstronautComponent },
     data() {
         return {
-            user: null,
-            isAstronautVisible: false, // Stato per caricare l'astronauta solo dopo il rendering iniziale
+            user: null, // Dati utente
+            animatedList: ["Erik","developer", "designer", "problem solver", "team player"], // Parole animate
+            currentIndex: 0,
         };
     },
     mounted() {
         this.getAdmin();
+        this.animateList();
     },
     methods: {
         async getAdmin() {
             try {
                 const response = await axios.get('/api/admin');
                 this.user = response.data.data || null;
-
-                setTimeout(() => {
-                    this.isAstronautVisible = true;
-                }, 8000);
             } catch (error) {
                 console.error('Error fetching user:', error);
                 this.user = null;
             }
         },
+        animateList() {
+            setInterval(() => {
+                this.currentIndex = (this.currentIndex + 1) % this.animatedList.length;
+            }, 3000); // Cambia ogni 2 secondi
+        },
     },
 };
 </script>
 
+
+
 <style lang="scss" scoped>
-    $font_family: 'Press Start 2P', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap');
+$left-color: #ffffff;
+$right-color: #333;
+$hello-color: rgb(128, 128, 128);
 
-    .about-me-container {
+.about-me-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .left-section {
+        background-color: #ffffff;
+        width: 50%;
         height: 100%;
-        overflow-y: auto;
-        background-image:
-            url('/images/me.png'),
-            linear-gradient(to bottom right,  rgba(127, 90, 240, 0.8) 50%, rgba(255, 255, 255, 1) 50%);
-        background-size: 300px, cover; /* Dimensione immagine e gradiente */
-        background-repeat: no-repeat;
-        background-position: right bottom, center center; /* Posizione immagine e gradiente */
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
 
-        h1 {
-            font-family: $font_family;
-            font-size: 5rem !important;
-            color: #ffffff; /* Colore del testo */
-            padding-top: 5rem;
-        }
+    .right-section {
+        background-color: #333;
+        width: 70%;
+        height: 100%;
+        clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
 
-        .text-pop-up-top {
-            -webkit-animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-                    animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
+    .hello {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -65%);
+        z-index: 3;
 
-        @-webkit-keyframes text-pop-up-top {
-            0% {
-                -webkit-transform: translateY(0);
-                        transform: translateY(0);
-                -webkit-transform-origin: 50% 50%;
-                        transform-origin: 50% 50%;
-                text-shadow: none;
-            }
-            100% {
-                -webkit-transform: translateY(-50px);
-                        transform: translateY(-50px);
-                -webkit-transform-origin: 50% 50%;
-                        transform-origin: 50% 50%;
-                text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+        .hello_text {
+            font-size: 150px;
+            font-family: "Stalinist One", serif;
+            font-weight: bold;
+            color: rgba(128, 128, 128, 0.1);
+            text-align: center;
+        }
+    }
+
+    .eb {
+        position: absolute;
+        width: 100%;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        z-index: 2;
+
+        .user_text {
+            font-size: 140px;
+            line-height: 130px;
+            font-family: 'Stalinist One', sans-serif;
+            font-weight: 800;
+            margin: 0;
+            position: relative;
+            margin-top: -105px;
+            letter-spacing: 3px;
+            text-align: center;
+
+            ul {
+                list-style: none;
+                font-size: 150px;
+                padding: 0;
+                padding-top: 50px;
+                // animation: change 10s infinite;
+
+                li {
+                    font-size: 50px;
+                    line-height: 1.2;
+                    color: #7f5af0;
+                }
             }
         }
-        @keyframes text-pop-up-top {
-            0% {
-                -webkit-transform: translateY(0);
-                        transform: translateY(0);
-                -webkit-transform-origin: 50% 50%;
-                        transform-origin: 50% 50%;
-                text-shadow: none;
-            }
-            100% {
-                -webkit-transform: translateY(-50px);
-                        transform: translateY(-50px);
-                -webkit-transform-origin: 50% 50%;
-                        transform-origin: 50% 50%;
-                text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
-            }
-        }
+    }
 }
+
+@keyframes change {
+    0%, 12.66%, 100% { transform: translate3d(0, 0, 0); }
+    16.66%, 29.32% { transform: translate3d(0, -50%, 0); }
+    49.98%, 62.64% { transform: translate3d(0, -75%, 0); }
+    66.64%, 79.3% { transform: translate3d(0, -50%, 0); }
+    83.3%, 95.96% { transform: translate3d(0, 0, 0); }
+}
+
+
 </style>
