@@ -2469,6 +2469,13 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2477,14 +2484,14 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     return {
       user: null,
       // Dati utente
-      animatedList: ["Erik", "developer", "designer", "problem solver", "team player"],
+      animatedList: ["Erik Borgogno", "Web Developer", "Designer"],
       // Parole animate
       currentIndex: 0
     };
   },
   mounted: function mounted() {
     this.getAdmin();
-    this.animateList();
+    this.startAnimation();
   },
   methods: {
     getAdmin: function getAdmin() {
@@ -2514,11 +2521,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee, null, [[0, 7]]);
       }))();
     },
-    animateList: function animateList() {
+    startAnimation: function startAnimation() {
       var _this2 = this;
       setInterval(function () {
         _this2.currentIndex = (_this2.currentIndex + 1) % _this2.animatedList.length;
-      }, 3000); // Cambia ogni 2 secondi
+      }, 5000); // Cambia ogni 3 secondi
     }
   }
 });
@@ -3718,7 +3725,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".about-me-container[data-v-30800c0c] {\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  position: relative;\n}\n.about-me-container .left-section[data-v-30800c0c] {\n  background-color: #ffffff;\n  width: 50%;\n  height: 100%;\n  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n.about-me-container .right-section[data-v-30800c0c] {\n  background-color: #333;\n  width: 70%;\n  height: 100%;\n  clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 1;\n}\n.about-me-container .hello[data-v-30800c0c] {\n  position: absolute;\n  top: 35%;\n  left: 50%;\n  transform: translate(-50%, -65%);\n  z-index: 3;\n}\n.about-me-container .hello .hello_text[data-v-30800c0c] {\n  font-size: 150px;\n  font-family: \"Stalinist One\", serif;\n  font-weight: bold;\n  color: rgba(128, 128, 128, 0.1);\n  text-align: center;\n}\n.about-me-container .eb[data-v-30800c0c] {\n  position: absolute;\n  width: 100%;\n  top: 60%;\n  left: 50%;\n  transform: translate(-50%, -40%);\n  z-index: 2;\n}\n.about-me-container .eb .user_text[data-v-30800c0c] {\n  font-size: 140px;\n  line-height: 130px;\n  font-family: \"Stalinist One\", sans-serif;\n  font-weight: 800;\n  margin: 0;\n  position: relative;\n  margin-top: -105px;\n  letter-spacing: 3px;\n  text-align: center;\n}\n.about-me-container .eb .user_text ul[data-v-30800c0c] {\n  list-style: none;\n  font-size: 150px;\n  padding: 0;\n  padding-top: 50px;\n}\n.about-me-container .eb .user_text ul li[data-v-30800c0c] {\n  font-size: 50px;\n  line-height: 1.2;\n  color: #7f5af0;\n}\n@keyframes change-data-v-30800c0c {\n0%, 12.66%, 100% {\n    transform: translate3d(0, 0, 0);\n}\n16.66%, 29.32% {\n    transform: translate3d(0, -50%, 0);\n}\n49.98%, 62.64% {\n    transform: translate3d(0, -75%, 0);\n}\n66.64%, 79.3% {\n    transform: translate3d(0, -50%, 0);\n}\n83.3%, 95.96% {\n    transform: translate3d(0, 0, 0);\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".about-me-container[data-v-30800c0c] {\n  /* Definisci i keyframes per l'animazione */\n}\n.about-me-container .left-section[data-v-30800c0c] {\n  background-color: #ffffff;\n  width: 50%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n.about-me-container .right-section[data-v-30800c0c] {\n  background-color: #333;\n  width: 70%;\n  height: 100%;\n  clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0 50%);\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 1;\n}\n.about-me-container .hello[data-v-30800c0c] {\n  position: absolute;\n  top: 32%;\n  left: 50%;\n  transform: translate(-50%, -68%);\n  z-index: 3;\n}\n.about-me-container .hello .hello_text[data-v-30800c0c] {\n  font-size: 150px;\n  font-family: \"Stalinist One\", serif;\n  font-weight: bold;\n  color: #7f5af0;\n  opacity: 0.1;\n  text-align: center;\n}\n.about-me-container .eb[data-v-30800c0c] {\n  position: absolute;\n  width: 100%;\n  top: 57%;\n  left: 50%;\n  transform: translate(-50%, -43%);\n  z-index: 4;\n}\n.about-me-container .eb .user_text[data-v-30800c0c] {\n  font-size: 140px;\n  line-height: 130px;\n  font-family: \"Stalinist One\", sans-serif;\n  font-weight: bold;\n  margin: 0;\n  position: relative;\n  margin-top: -105px;\n  letter-spacing: 3px;\n  text-align: center;\n}\n.about-me-container .eb .user_text .span_black[data-v-30800c0c] {\n  color: #333;\n}\n.about-me-container .eb .user_text .span_white[data-v-30800c0c] {\n  color: #ffffff;\n}\n.about-me-container .eb .user_text ul[data-v-30800c0c] {\n  margin-top: 40px;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  height: 100px; /* Mostra solo un elemento */\n  overflow: hidden; /* Nasconde gli elementi fuori dal contenitore */\n  position: relative;\n}\n.about-me-container .eb .user_text ul .content__container__list__item[data-v-30800c0c] {\n  font-size: 50px;\n  line-height: 70px;\n  color: #7f5af0;\n  position: absolute;\n  width: 100%;\n  top: 100%; /* Posizione iniziale fuori dallo schermo */\n  left: 0;\n  opacity: 0;\n  animation: scroll-in-out 4s ease-in-out infinite;\n}\n.about-me-container .eb .user_text ul .content__container__list__item.active[data-v-30800c0c] {\n  animation: scroll-in-data-v-30800c0c 5s ease-in-out forwards;\n  opacity: 1;\n  top: 0;\n}\n@keyframes scroll-in-data-v-30800c0c {\n0% {\n    transform: translateY(100%);\n    opacity: 0;\n}\n50% {\n    transform: translateY(0%);\n    opacity: 1;\n}\n100% {\n    transform: translateY(-100%);\n    opacity: 0;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6890,55 +6897,52 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "about-me-container w-100 h-100 d-flex flex-column position-relative",
-    },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "eb" }, [
-        _c("p", { staticClass: "user_text" }, [
-          _vm._v("\n            I Am\n            "),
-          _c(
-            "ul",
-            { staticClass: "d-block content__container__list" },
-            _vm._l(_vm.animatedList, function (item, index) {
-              return _c(
-                "li",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: index === _vm.currentIndex,
-                      expression: "index === currentIndex",
-                    },
-                  ],
-                  key: index,
-                  staticClass: "content__container__list__item",
-                },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(item) +
-                      "\n                "
-                  ),
-                ]
-              )
-            }),
-            0
-          ),
+  return _c("div", { staticClass: "about-me-container w-100 h-100" }, [
+    _c(
+      "div",
+      { staticClass: "vh-100 w-100 d-flex flex-column position-relative" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "eb" }, [
+          _c("p", { staticClass: "user_text gradient-text" }, [
+            _c("span", { staticClass: "span_black" }, [_vm._v("I")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "span_white" }, [_vm._v("Am")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "d-block content__container__list" },
+              _vm._l(_vm.animatedList, function (item, index) {
+                return _c(
+                  "li",
+                  {
+                    key: index,
+                    staticClass: "content__container__list__item",
+                    class: { active: _vm.currentIndex === index },
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(item) +
+                        "\n                    "
+                    ),
+                  ]
+                )
+              }),
+              0
+            ),
+          ]),
         ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "left-section" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "right-section" }),
-    ]
-  )
+        _vm._v(" "),
+        _c("div", { staticClass: "left-section" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "right-section" }),
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "vh-100 w-100" }),
+  ])
 }
 var staticRenderFns = [
   function () {

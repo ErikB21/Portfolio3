@@ -1,23 +1,30 @@
 <template>
-    <div class="about-me-container w-100 h-100 d-flex flex-column position-relative">
-        <div class="hello">
-            <p class="hello_text">Hello!</p>
+    <div class="about-me-container w-100 h-100">
+        <div class=" vh-100 w-100 d-flex flex-column position-relative">
+            <div class="hello">
+                <p class="hello_text">Hello!</p>
+            </div>
+            <div class="eb">
+                <p class="user_text gradient-text">
+                    <span class="span_black">I</span> <span class="span_white">Am</span>
+                    <ul class="d-block content__container__list">
+                        <li
+                            class="content__container__list__item"
+                            v-for="(item, index) in animatedList"
+                            :key="index"
+                            :class="{ active: currentIndex === index }"
+                        >
+                            {{ item }}
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="left-section"></div>
+            <div class="right-section"></div>
         </div>
-        <div class="eb">
-            <p class="user_text">
-                I Am
-                <ul class="d-block content__container__list">
-                    <li class="content__container__list__item" v-for="(item, index) in animatedList" :key="index" v-show="index === currentIndex">
-                        {{ item }}
-                    </li>
-                </ul>
-            </p>
-        </div>
-        <div class="left-section"></div>
-        <div class="right-section"></div>
+        <div class="vh-100 w-100"></div>
     </div>
 </template>
-
 
 <script>
 import axios from 'axios';
@@ -27,13 +34,13 @@ export default {
     data() {
         return {
             user: null, // Dati utente
-            animatedList: ["Erik","developer", "designer", "problem solver", "team player"], // Parole animate
+            animatedList: ["Erik Borgogno", "Web Developer", "Designer"], // Parole animate
             currentIndex: 0,
         };
     },
     mounted() {
         this.getAdmin();
-        this.animateList();
+        this.startAnimation();
     },
     methods: {
         async getAdmin() {
@@ -45,10 +52,10 @@ export default {
                 this.user = null;
             }
         },
-        animateList() {
+        startAnimation() {
             setInterval(() => {
                 this.currentIndex = (this.currentIndex + 1) % this.animatedList.length;
-            }, 3000); // Cambia ogni 2 secondi
+            }, 5000); // Cambia ogni 3 secondi
         },
     },
 };
@@ -56,23 +63,20 @@ export default {
 
 
 
+
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap');
 $left-color: #ffffff;
 $right-color: #333;
-$hello-color: rgb(128, 128, 128);
+$hello-color: #7f5af0;
 
 .about-me-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
+    // overflow: hidden;
 
     .left-section {
         background-color: #ffffff;
         width: 50%;
         height: 100%;
-        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
         position: absolute;
         top: 0;
         left: 0;
@@ -83,7 +87,7 @@ $hello-color: rgb(128, 128, 128);
         background-color: #333;
         width: 70%;
         height: 100%;
-        clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0 50%);
         position: absolute;
         top: 0;
         right: 0;
@@ -92,16 +96,17 @@ $hello-color: rgb(128, 128, 128);
 
     .hello {
         position: absolute;
-        top: 35%;
+        top: 32%;
         left: 50%;
-        transform: translate(-50%, -65%);
+        transform: translate(-50%, -68%);
         z-index: 3;
 
         .hello_text {
             font-size: 150px;
             font-family: "Stalinist One", serif;
             font-weight: bold;
-            color: rgba(128, 128, 128, 0.1);
+            color: $hello-color;
+            opacity: 0.1;
             text-align: center;
         }
     }
@@ -109,46 +114,74 @@ $hello-color: rgb(128, 128, 128);
     .eb {
         position: absolute;
         width: 100%;
-        top: 60%;
+        top: 57%;
         left: 50%;
-        transform: translate(-50%, -40%);
-        z-index: 2;
+        transform: translate(-50%, -43%);
+        z-index: 4;
 
         .user_text {
             font-size: 140px;
             line-height: 130px;
             font-family: 'Stalinist One', sans-serif;
-            font-weight: 800;
+            font-weight: bold;
             margin: 0;
             position: relative;
             margin-top: -105px;
             letter-spacing: 3px;
             text-align: center;
+            .span_black{
+                color: $right-color;
+            }
+            .span_white{
+                color: $left-color;
+            }
 
             ul {
+                margin-top: 40px;
                 list-style: none;
-                font-size: 150px;
                 padding: 0;
-                padding-top: 50px;
-                // animation: change 10s infinite;
+                margin: 0;
+                height: 100px; /* Mostra solo un elemento */
+                overflow: hidden; /* Nasconde gli elementi fuori dal contenitore */
+                position: relative;
 
-                li {
+                .content__container__list__item {
                     font-size: 50px;
-                    line-height: 1.2;
+                    line-height: 70px;
                     color: #7f5af0;
+                    position: absolute;
+                    width: 100%;
+                    top: 100%; /* Posizione iniziale fuori dallo schermo */
+                    left: 0;
+                    opacity: 0;
+                    animation: scroll-in-out 4s ease-in-out infinite;
+                }
+
+                .content__container__list__item.active {
+                    animation: scroll-in 5s ease-in-out forwards;
+                    opacity: 1;
+                    top: 0;
                 }
             }
         }
     }
-}
 
-@keyframes change {
-    0%, 12.66%, 100% { transform: translate3d(0, 0, 0); }
-    16.66%, 29.32% { transform: translate3d(0, -50%, 0); }
-    49.98%, 62.64% { transform: translate3d(0, -75%, 0); }
-    66.64%, 79.3% { transform: translate3d(0, -50%, 0); }
-    83.3%, 95.96% { transform: translate3d(0, 0, 0); }
-}
+    /* Definisci i keyframes per l'animazione */
+    @keyframes scroll-in {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        50% {
+            transform: translateY(0%);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
 
+}
 
 </style>
