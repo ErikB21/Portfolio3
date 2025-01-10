@@ -75,9 +75,9 @@ export default {
             transform: translateY(-7px) scale(1.01);
         }
     }
-    @media only screen and (max-width:766px){
+    @media only screen and (max-width:766.99px){
         .header_component{
-            height: 18vh;
+            height: 12vh;
             width: 98%;
         }
 

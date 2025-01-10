@@ -1,6 +1,6 @@
 <template>
     <div class="about-me-container w-100 h-100">
-        <div class=" vh-100 w-100 d-flex flex-column position-relative">
+        <div class="general_container vh-100 w-100 d-flex flex-column position-relative">
             <div class="hello">
                 <p class="hello_text">Hello!</p>
             </div>
@@ -22,15 +22,25 @@
             <div class="left-section"></div>
             <div class="right-section"></div>
         </div>
-        <div class="vh-100 w-100"></div>
+        <div class="vh-100 w-100 container-fluid">
+            <div class="row justify-content-evenly align-items-center">
+                <div class="image_about col-4">
+                    <img class="h-100 w-100" src="https://img.freepik.com/premium-vector/gamer-streamer-mascot-logo-vector-illustration_382438-609.jpg" alt="">
+                </div>
+                <AboutMeTextComponent class="col-7"/>
+            </div>
+
+        </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import AboutMeTextComponent from '../components/AboutMeTextComponent.vue';
 
 export default {
     name: "AboutMe",
+    components:{ AboutMeTextComponent },
     data() {
         return {
             user: null, // Dati utente
@@ -182,6 +192,56 @@ $hello-color: #7f5af0;
         }
     }
 
+    .image_about{
+        clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        height: 200px;
+        width: 200px;
+    }
+
+}
+
+@media screen and (min-width:300px) and (max-width:575.98px){
+    .general_container{
+        height: 100%!important;
+    }
+
+    .hello{
+        top: 25%!important;
+        .hello_text{
+            font-size: 65px!important;
+            padding: 0 10px!important;
+        }
+    }
+
+    .eb{
+        top: 50%!important;
+        .user_text{
+            font-size: 70px!important;
+            margin-top: 0!important;
+        }
+
+        .content__container__list{
+            margin-top: 40px!important;
+        }
+        .content__container__list__item{
+            font-size: 35px!important;
+            line-height: 30px!important;
+        }
+    }
+}
+
+
+@media screen and (min-width:426px) and (max-width:575.98px){
+    .hello_text{
+        font-size: 100px !important;
+    }
+
+}
+
+@media screen and (min-width:575.99px) and (max-width: 766.98px){
+    .content__container__list{
+        margin-top: 40px!important;
+    }
 }
 
 </style>
